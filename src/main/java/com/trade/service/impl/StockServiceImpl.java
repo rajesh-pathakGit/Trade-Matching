@@ -8,6 +8,7 @@ import com.trade.mapper.RequestDtoToEntityMapper;
 import com.trade.repository.StockRepository;
 import com.trade.service.StockService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 @Service
@@ -20,6 +21,7 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
+    @Transactional("transactionManager")
     public StockResponse createNewStock(StockRequest request) {
         String stockId = UUID.randomUUID().toString();
         if(stockRepository.existsByStockName(request.getStockName())){

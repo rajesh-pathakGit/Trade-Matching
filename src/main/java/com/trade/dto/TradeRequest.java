@@ -106,4 +106,7 @@ public class TradeRequest {
         this.tradeDate = tradeDate;
         this.status = status;
     }
+
+    public TradeRequest() {
+    }
 }
